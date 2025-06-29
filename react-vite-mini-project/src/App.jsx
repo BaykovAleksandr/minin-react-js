@@ -1,20 +1,15 @@
 import Header from './components/Header' 
 import { ways } from "./data.js";
+import WayToTeach from './components/WayToTeach.jsx';
+import Button from './components/Button/Button.jsx';
 
-function WayToTeach(props) {
-  return (
-    <li>
-      <p>
-        <strong>
-          {props.title}
-        </strong>
-        {props.description}
-      </p>
-    </li>
-  );
-}
+
 
 function App() {
+  function handleClick(type) {
+    console.log('button clicked', type);
+    
+  }
   return (
     <>
       <Header />
@@ -23,18 +18,18 @@ function App() {
         <section>
           <ul>
             <WayToTeach
-              title={ways[3].title}
+              title={ways[0].title}
               description={ways[0].description}
             />
-            <WayToTeach
-              title={ways[1].title}
-              description={ways[1].description}
-            />
-            <WayToTeach
-              title={ways[2].title}
-              description={ways[2].description}
-            />
+            <WayToTeach {...ways[1]} />
+            <WayToTeach {...ways[2]} />
           </ul>
+        </section>
+        <section>
+          <h3>Чем мы отличаемся от других</h3>
+          <Button buttoonClick={() => handleClick("Way")}> Подход </Button>
+          <Button buttoonClick={() => handleClick("Easy")}> Подход </Button>
+          <Button buttoonClick={() => handleClick("Program")}> Подход </Button>
         </section>
       </main>
     </>
