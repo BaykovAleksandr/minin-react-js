@@ -1,15 +1,20 @@
 import Header from './components/Header' 
-import { ways } from "./data.js";
+import { ways, differences } from "./data";
+import { useState } from 'react';
 import WayToTeach from './components/WayToTeach.jsx';
 import Button from './components/Button/Button.jsx';
 
 
 
 function App() {
+
+  const [content, setContent] = useState('PRESS ME');
+
   function handleClick(type) {
-    console.log('button clicked', type);
-    
+    setContent(type)
+    //console.log('button clicked', type);
   }
+
   return (
     <>
       <Header />
@@ -27,10 +32,12 @@ function App() {
         </section>
         <section>
           <h3>Чем мы отличаемся от других</h3>
-          <Button buttoonClick={() => handleClick("Way")}> Подход </Button>
-          <Button buttoonClick={() => handleClick("Easy")}> Подход </Button>
-          <Button buttoonClick={() => handleClick("Program")}> Подход </Button>
+          <Button  buttonClick={() => handleClick("way")}> Подход </Button>
+          <Button  buttonClick={() => handleClick("easy")}> Подход </Button>
+          <Button  buttonClick={() => handleClick("program")}> Подход </Button>
         </section>
+
+        <p>{differences[content]}</p>
       </main>
     </>
   );
