@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import logo from "/logo-name.svg";
 
 export default function Header() {
-  const [date, setDate] = useState(new Date());
+  const [dateType, setDateType] = useState(new Date());
 
   useEffect(() => {
-    const timerID = setInterval(() => setDate(new Date()), 1000);
+    const timerID = setInterval(() => setDateType(new Date()), 1000);
 
     return () => clearInterval(timerID);
   }, []);
@@ -14,7 +14,7 @@ export default function Header() {
     <div>
       <header>
         <img src={logo} alt={"result"} />
-        <span>Здесь будет время: {date.toLocaleTimeString()}</span>
+        <span>Здесь будет время: {dateType.toLocaleTimeString()}</span>
       </header>
     </div>
   );
