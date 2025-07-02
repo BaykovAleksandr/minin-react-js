@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import logo from "/logo-name.svg";
+import "./Header.css"
 
 export default function Header() {
   const [dateType, setDateType] = useState(new Date());
