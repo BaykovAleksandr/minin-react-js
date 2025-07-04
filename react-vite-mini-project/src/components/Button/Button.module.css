@@ -16,3 +16,7 @@ margin-right: 1rem;
 	background: #3e6ae1;
 	color: #fff;
 }
+
+.button:disabled {
+	cursor: not-allowed;
+}
